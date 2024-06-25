@@ -9,7 +9,11 @@ import com.example.roomdbnew1.database.Item
 import com.example.roomdbnew1.database.ItemDao
 import com.example.roomdbnew1.database.ItemRoomDatabase
 import com.example.roomdbnew1.databinding.ActivityHomeBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.last
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
@@ -31,7 +35,20 @@ class HomeActivity : AppCompatActivity() {
         binding.btndb.setOnClickListener{
             insertDataDb()
         }
+        binding.btnFind.setOnClickListener{
+            FindItemDB(21)
+        }
     }
+
+    private fun FindItemDB(id: Int) {
+        GlobalScope.launch(Dispatchers.Main) {
+            var item = dao.getItem(id).first()
+            binding.tvdb.setText(item.itemName)
+        }
+
+
+    }
+
     private fun insertDataDb() {
         GlobalScope.launch {
             var item = Item(21,"fruits",11.11,11)

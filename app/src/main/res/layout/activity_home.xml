@@ -11,9 +11,29 @@
         android:id="@+id/btndb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="79dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="80dp"
         android:text="Insert Button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnFind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="13dp"
+        android:text="Find"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btndb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btndb" />
+
+    <TextView
+        android:id="@+id/tvdb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="6dp"
+        android:text="Item Finder"
+        app:layout_constraintEnd_toStartOf="@+id/btnFind"
+        app:layout_constraintTop_toBottomOf="@+id/btndb" />
 </androidx.constraintlayout.widget.ConstraintLayout>
